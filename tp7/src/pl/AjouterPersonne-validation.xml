@@ -1,0 +1,89 @@
+<!DOCTYPE validators PUBLIC
+"-//OpenSymphony Group//XWork Validator 1.0//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	
+	
+	<field name="login">
+		
+		<field-validator type="requiredstring">
+			<message>Le Login est obligatoire!</message>
+		</field-validator>			
+		
+		<field-validator type="stringlength">
+			<param name="minLength">5</param>
+			<param name="maxLength">10</param>
+			<message>
+				La longeur du login doit etre compris entre ${minLength}
+				et ${maxLength}
+			</message>
+		</field-validator> 
+
+	</field>
+
+	<field name="password">
+		<field-validator type="requiredstring">
+			<message>Le mot de passe est obligatoire!</message>
+		</field-validator>
+	</field>
+	
+	<field name="prenom">
+		<field-validator type="requiredstring">
+			<message>Le prénom est obligatoire!</message>
+		</field-validator>
+	</field>
+
+	<field name="nom">
+		<field-validator type="requiredstring">
+			<message>Le nom est obligatoire!</message>
+		</field-validator>
+	</field>
+	<field name="profile">
+		<field-validator type="requiredstring">
+			<message>Administrateur ou Utilisateur!</message>
+		</field-validator>
+		<field-validator type="regex" >
+			<param name="expression">Administrateur|Utilisateur</param>
+			<message>
+				Administrateur ou Utilisateur!
+			</message>
+		</field-validator>
+	</field>
+	<!--
+		<field name="login">
+		<field-validator type="stringlength">
+		<param name="minLength">5</param>
+		<param name="maxLength">10</param>
+		<param name="trim">true</param>
+		<message>
+		La longeur du login doit etre compris entre ${minLength}
+		et ${maxLength}
+		</message>
+		</field-validator>
+		</field>
+	-->
+
+	<!--  <field name="login">
+		<field-validator type="date">
+		<param name="min">01/01/1990</param>
+		<param name="max">01/01/2000</param>
+		<message>Birthday must be within ${min} and ${max}</message>
+		</field-validator>
+		</field>
+	-->
+
+	<!-- <field name="login">
+		<field-validator type="regex">
+		<param name="expression">[0-9],[0-9]</param>
+		<message>
+		The value of bar2 must be in the format "x, y", where x
+		and y are between 0 and 9
+		</message>
+		</field-validator>
+		</field> -->
+
+
+
+
+
+</validators>
