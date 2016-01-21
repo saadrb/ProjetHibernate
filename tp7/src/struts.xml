@@ -5,7 +5,7 @@
 
 
 <struts>
-<constant name="struts.custom.i18n.resources" value="myapp" />
+	<constant name="struts.custom.i18n.resources" value="myapp" />
 	<package name="pl" namespace="/" extends="struts-default">
 
 		<action name="execute" class="pl.InitConfig">
@@ -15,38 +15,73 @@
 		<action name="connection" class="pl.AuthentificationVA">
 			<result name="success">accueil.jsp</result>
 			<result name="error">connect.jsp</result>
-			<result name="input" >connect.jsp</result>
+			<result name="input">connect.jsp</result>
 		</action>
-		
+
 		<action name="AjouterUsers">
 			<result>AjoutPersonne.jsp</result>
 		</action>
-		
+
 		<action name="AjouterUser" class="pl.AjouterPersonne" method="AjouterUser">
 			<result name="success">accueil.jsp</result>
 			<result name="error">AjoutPersonne.jsp</result>
-			<result name="input" >AjoutPersonne.jsp</result>
+			<result name="input">AjoutPersonne.jsp</result>
 		</action>
-		
-		<action name="consultePersonne" class="pl.ConsultePersonne" method="listUser">
+
+		<action name="consultePersonne" class="pl.ConsultePersonne"
+			method="listUser">
 			<result name="success">consultPersonne.jsp</result>
 			<!-- <result name="input" >Accueil.jsp</result> -->
 		</action>
-		
+
 		<action name="editPersonne" class="pl.ConsultePersonne" method="getUser">
 			<result>editPersonne.jsp</result>
 		</action>
-		
+
 		<action name="ModifUser" class="pl.ConsultePersonne" method="ModifierUser">
-			 <result name="success">validEdit.jsp</result>
+			<result name="success">validEdit.jsp</result>
 			<result name="error">editPersonne.jsp</result>
-			<result name="input" >editPersonne.jsp</result>
+			<result name="input">editPersonne.jsp</result>
+		</action>
+
+		<action name="supprimerPersonne" class="pl.ConsultePersonne"
+			method="SupprimerUser">
+			<result name="success">validEdit.jsp</result>
+			<result name="error">consultPersonne.jsp</result>
+			<result name="input">consultPersonne.jsp</result>
+		</action>
+
+		<action name="AjouterComs">
+			<result>AjoutCommande.jsp</result>
+		</action>
+
+		<action name="AjouterCom" class="pl.GestionCommande" method="AjoutCom">
+			<result name="success">accueil.jsp</result>
+			<result name="error">AjoutCommande.jsp</result>
+			<result name="input">AjoutCommande.jsp</result>
+		</action>
+
+		<action name="consulteCommande" class="pl.GestionCommande"
+			method="listCom">
+			<result name="success">consulteCommande.jsp</result>
+			<!-- <result name="input" >Accueil.jsp</result> -->
+		</action>
+
+		<action name="editCommande" class="pl.GestionCommande" method="getCom">
+			<result>editCommande.jsp</result>
 		</action>
 		
-		<action name="supprimerPersonne" class="pl.ConsultePersonne" method="SupprimerUser">
-			 <result name="success">validEdit.jsp</result>
-			<result name="error">consultPersonne.jsp</result>
-			<result name="input" >consultPersonne.jsp</result>
+		<action name="ModifCom" class="pl.GestionCommande" method="updateCom">
+			<result name="success">ValidEditCommande.jsp</result>
+			<result name="error">editCommande.jsp</result>
+			<result name="input">editCommande.jsp</result>
+		</action>
+		
+		<action name="supprimerCommande" class="pl.GestionCommande"
+			method="SupprimerCom">
+			<result name="success">ValidEditCommande.jsp</result>
+			<result name="error">consulteCommande.jsp</result>
+			<result name="input">consulteCommande.jsp</result>
 		</action>
 
 	</package>

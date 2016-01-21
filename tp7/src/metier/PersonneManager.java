@@ -57,7 +57,6 @@ public class PersonneManager {
 		Personne personne=new Personne();
 		PersonneDAO.getPersonne(id);
 		personne.setIdentifiant(id);
-		System.out.println(personne.getIdentifiant());
 		PersonneDAO.SupprimerPersonne(personne);
 	}
 

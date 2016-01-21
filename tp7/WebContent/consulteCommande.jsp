@@ -15,46 +15,19 @@
 <body>
 
     
-		<display:table name="listeCommandes" export="true"  pagesize="2" decorator="pl.CommandeDecorator">
+		<display:table name="listeCommandes" pagesize="5" >
 	
-			<display:column property="identifiant" title="ID" />
-			<display:column property="code" title="Code"  />
-			<display:column property="libelle" title="Libellé"  />
-			<display:column property="montant" title="Montant" />
-			<display:column url="/editModifierCommande.action" paramId="code" paramProperty="code">Modifier</display:column>
-			<display:column url="/supprimerCommande.action" paramId="code" paramProperty="code">Supprimer</display:column>
+			<display:column property="identifiant" titleKey="commande.identifiant" />
+			<display:column property="code" titleKey="commande.code"  />
+			<display:column property="libelle" titleKey="commande.Libelle"  />
+			<display:column property="montant" title="commande.montant" />
+			<display:column url="/editCommande.action" paramId="code" paramProperty="code">Modifier</display:column>
+			<display:column url="/supprimerCommande.action" paramId="identifiant" paramProperty="identifiant">Supprimer</display:column>
 			
 		</display:table>
 
-<!-- 
-<table>
-	<tr>
-		<td>Modification</td>
-		<td>Suppression</td>
-		<td>Codes</td>
-		<td>Nom</td>
-		<td>Montant</td>
-	</tr>
-	<s:iterator value="listeCommandes" status="stat">
-		<tr>
-			<td><s:url id="modifUrl" action="editModifierCommande">
-				<s:param name="code" value="code" />
-				<s:param name="libelle"  value="libelle"/>
-				<s:param name="montant" value="montant" />
-			</s:url> <s:a href="%{modifUrl}">Modifier</s:a></td>
-			<td><s:url id="supprimUrl" action="supprimerCommande">
-				<s:param name="code" value="code" />				
-			</s:url> <s:a href="%{supprimUrl}">Supprimer</s:a></td>
-			<td><s:property value="code" /></td>
-			<td><s:property value="libelle" /></td>
-			<td><s:property value="montant" /></td>
-		</tr>
-	</s:iterator>
-</table>
 
- -->
-
-<a href="editAjoutCommande.action">Ajouter </a>
+<a href="AjouterCom.action">Ajouter </a>
 
 </body>
 </html>

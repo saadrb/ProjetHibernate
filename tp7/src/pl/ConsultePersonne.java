@@ -67,12 +67,12 @@ public class ConsultePersonne extends ActionSupport implements ServletRequestAwa
 			setPrenom(p.getPrenom());
 			setLogin(p.getLogin());
 			setPassword(p.getPassword());
-//			String s;
-//			if(p.getProfile()==1)
-//				s="Utilisateur";
-//			else
-//				s="Administrateur";
-	//		setProfile(p.getProfile());
+			// String s;
+			// if(p.getProfile()==1)
+			// s="Utilisateur";
+			// else
+			// s="Administrateur";
+			// setProfile(p.getProfile());
 		}
 		return "success";
 	}

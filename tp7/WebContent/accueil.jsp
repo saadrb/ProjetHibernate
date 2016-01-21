@@ -13,8 +13,9 @@
 <H1>Bonjour <s:label name="nom" /> <s:label name="prenom" /></H1> 
 
 
-
 <a href="consulteCommande.action">Lister toutes les commandes  </a>
+<br>
+<a href="AjouterComs.action">Ajouter une commandes  </a>
 <br>
 <a href="consultePersonne.action">Lister toutes les personnes  </a>
 <br>

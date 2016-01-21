@@ -1,13 +1,23 @@
 package modele;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Personne {
 	@Id
 	@GeneratedValue
+	@Column(name = "Personne_ID")
 	private long identifiant;
 
 	private String nom;
@@ -17,10 +27,21 @@ public class Personne {
 	private String login;
 
 	private String password;
-	
+
 	private int profile;
-	
-	public Personne( String login, String nom, String password, String prenom, int profile) {
+
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "personne")
+	private Collection<Commande> commande = new ArrayList<Commande>();
+
+	public Collection<Commande> getCommande() {
+		return commande;
+	}
+
+	public void setCommande(Collection<Commande> commande) {
+		this.commande = commande;
+	}
+
+	public Personne(String login, String nom, String password, String prenom, int profile) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -40,12 +61,12 @@ public class Personne {
 	public Personne() {
 
 	}
-	
+
 	public Personne(String nom, String prenom) {
 
 		this.nom = nom;
 		this.prenom = prenom;
-	}	
+	}
 
 	public long getIdentifiant() {
 		return identifiant;

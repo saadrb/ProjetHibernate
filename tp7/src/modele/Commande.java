@@ -1,13 +1,18 @@
 package modele;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Commande {
 	@Id
 	@GeneratedValue
+	@Column(name = "Commande_ID")
 	private long identifiant;
 
 	private String code;
@@ -15,6 +20,10 @@ public class Commande {
 	private String libelle;
 
 	private String montant;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Personne_ID", nullable = false)
+	private Personne personne;
 
 	public long getIdentifiant() {
 		return identifiant;
@@ -48,12 +57,20 @@ public class Commande {
 		this.montant = montant;
 	}
 
-	public Commande(long identifiant, String code, String libelle, String montant) {
+	public Commande(String code, String libelle, String montant, Personne personne) {
 		super();
-		this.identifiant = identifiant;
 		this.code = code;
 		this.libelle = libelle;
 		this.montant = montant;
+		this.personne=personne;
+	}
+
+	public Personne getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
 
 	public Commande() {

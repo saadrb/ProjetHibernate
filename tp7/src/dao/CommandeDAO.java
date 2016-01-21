@@ -18,8 +18,9 @@ public class CommandeDAO {
 		BaseDAO.getInstance().delete(commande);
 	}
 
-	public static void getCommande(Long id) {
-		BaseDAO.getInstance().getObject(Commande.class, id);
+	public static Commande getCommande(Long id) {
+		Commande commande= (Commande) BaseDAO.getInstance().getObject(Commande.class, id);
+		return commande;
 	}
 
 	public static Collection getListeCommande(String requette) {
