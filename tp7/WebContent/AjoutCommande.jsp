@@ -22,17 +22,13 @@
 	<jsp:include page="fragments/header.jsp"></jsp:include>
 
 	<div class="container">
-
 		<s:actionerror />
 
-		<h2>Modifier Personne</h2>
-		<b> <s:form action="ModifUser">
-				<s:textfield key="personne.identifiant" name="identifiant" />
-				<s:textfield key="personne.login" name="login" />
-				<s:textfield key="personne.nom" name="nom" />
-				<s:textfield key="personne.prenom" name="prenom" />
-				<s:password key="personne.password" name="password" />
-				<s:textfield key="personne.profile" name="profile" />
+		<h2>Ajouter Commande</h2>
+		<b> <s:form action="AjouterCom">
+				<s:textfield key="commande.code" name="code" />
+				<s:textfield key="commande.libelle" name="libelle" />
+				<s:textfield key="commande.montant" name="montant" />
 				<s:submit key="submit" />
 			</s:form>
 		</b>

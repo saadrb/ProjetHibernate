@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,14 +24,12 @@
 
 		<s:actionerror />
 
-		<h2>Modifier Personne</h2>
-		<b> <s:form action="ModifUser">
-				<s:textfield key="personne.identifiant" name="identifiant" />
-				<s:textfield key="personne.login" name="login" />
-				<s:textfield key="personne.nom" name="nom" />
-				<s:textfield key="personne.prenom" name="prenom" />
-				<s:password key="personne.password" name="password" />
-				<s:textfield key="personne.profile" name="profile" />
+		<h2>Modifier Commande</h2>
+		<b> <s:form action="ModifCom">
+				<s:textfield key="commande.identifiant" name="identifiant" />
+				<s:textfield key="commande.code" name="code" />
+				<s:textfield key="commande.libelle" name="libelle" />
+				<s:textfield key="commande.montant" name="montant" />
 				<s:submit key="submit" />
 			</s:form>
 		</b>

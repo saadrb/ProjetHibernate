@@ -18,58 +18,11 @@
 				et ${maxLength}
 			</message>
 		</field-validator>
-
-		<!--  <field-validator type="regex" >
-			<param name="expression">[0-9]*[0-9]</param>
-			<message>
-				Le login doit être un entier
-			</message>
-		</field-validator>  -->		
-	
-	</field>
-
+		
 	<field name="password">
 		<field-validator type="requiredstring">
 			<message>Mot de passe est un champs obligatoire!</message>
 		</field-validator>
 	</field>
-
-
-	<!--
-		<field name="login">
-		<field-validator type="stringlength">
-		<param name="minLength">5</param>
-		<param name="maxLength">10</param>
-		<param name="trim">true</param>
-		<message>
-		La longeur du login doit etre compris entre ${minLength}
-		et ${maxLength}
-		</message>
-		</field-validator>
-		</field>
-	-->
-
-	<!--  <field name="login">
-		<field-validator type="date">
-		<param name="min">01/01/1990</param>
-		<param name="max">01/01/2000</param>
-		<message>Birthday must be within ${min} and ${max}</message>
-		</field-validator>
-		</field>
-	-->
-
-	<!-- <field name="login">
-		<field-validator type="regex">
-		<param name="expression">[0-9],[0-9]</param>
-		<message>
-		The value of bar2 must be in the format "x, y", where x
-		and y are between 0 and 9
-		</message>
-		</field-validator>
-		</field> -->
-
-
-
-
 
 </validators>

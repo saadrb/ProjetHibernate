@@ -1,25 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Project Manager</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/home.css" type="text/css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </head>
-<body>
+<body style="background:url('resources/282.jpg') no-repeat;">
 
-<H1>Bonjour <s:label name="nom" /> <s:label name="prenom" /></H1> 
+	<jsp:include page="fragments/header.jsp"></jsp:include>
+
+	<div class="container">
+		<H1>
+			Bonjour Mr:
+			<s:label name="#session.nomPersonne" />
+			<s:label name="#session.prenomPersonne" />
+			<br>
+			Vous vous etes connecté sous le login de :
+			<s:label name="#session.loginPersonne" />
+			<br><br>
+			Et votre role est un :
+			<s:if test="%{#session.profilePersonne == 0}">
+				<s:label value="Administrateur" />
+			</s:if>
+			<s:else>
+				<s:label value="Simple utilisateur" />
+			</s:else>
+		</H1>
 
 
-<a href="consulteCommande.action">Lister toutes les commandes  </a>
-<br>
-<a href="AjouterComs.action">Ajouter une commandes  </a>
-<br>
-<a href="consultePersonne.action">Lister toutes les personnes  </a>
-<br>
-<a href="AjouterUsers.action">Ajouter Client</a>
-
+	</div>
 </body>
 </html>

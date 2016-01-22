@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import metier.PersonneManager;
 import modele.Personne;
@@ -18,7 +19,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class AuthentificationVA extends ActionSupport {
 
 	private Long identifiant;
-	
+	Map session;
+
 	public Long getIdentifiant() {
 		return identifiant;
 	}
@@ -34,19 +36,19 @@ public class AuthentificationVA extends ActionSupport {
 	private String nom;
 
 	private String prenom;
-	
-	private String profile;
 
-	public String getProfile() {
+	private int profile;
+
+	public int getProfile() {
 		return profile;
 	}
 
-	public void setProfile(String profile) {
+	public void setProfile(int profile) {
 		this.profile = profile;
 	}
 
 	public String execute() {
-		
+
 		Collection personnes = PersonneManager.getUsers(getLogin(), getPassword());
 		for (Iterator iter = personnes.iterator(); iter.hasNext();) {
 			Personne personne = (Personne) iter.next();
@@ -54,19 +56,30 @@ public class AuthentificationVA extends ActionSupport {
 			setNom(personne.getNom());
 			setPrenom(personne.getPrenom());
 			setIdentifiant(personne.getIdentifiant());
-			Map session = ActionContext.getContext().getSession();
+			setLogin(personne.getLogin());
+			setProfile(personne.getProfile());
+			session = ActionContext.getContext().getSession();
 			session.put("idPersonne", getIdentifiant());
 			session.put("profilePersonne", getProfile());
+			session.put("nomPersonne", getNom());
+			session.put("prenomPersonne", getPrenom());
+			session.put("loginPersonne", getLogin());
 			return "success";
 		}
 		return "error";
+	}
+	@SkipValidation
+	public String decon() {
+
+		session = ActionContext.getContext().getSession();
+		session.clear();
+		return "success";
 	}
 
 	public String getProfil() {
 
 		return "success";
 	}
-	
 
 	public String getNom() {
 		return nom;
@@ -92,7 +105,6 @@ public class AuthentificationVA extends ActionSupport {
 		this.prenom = prenom;
 	}
 
-
 	public String getLogin() {
 		return login;
 	}
@@ -101,5 +113,4 @@ public class AuthentificationVA extends ActionSupport {
 		this.login = login;
 	}
 
-	
 }
